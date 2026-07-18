@@ -1,34 +1,22 @@
-import { Route, Routes } from 'react-router-dom';
-import Home from "./pages/home/Home";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './App.css';
-import './style/StyleComponent'; // Fayl yo'lini tekshirib ol
-import Header from './components/header/Header';
-import { Button } from './style/StyleComponent';
-import { Title } from './style/StyleComponent';
+import "../src/styles/fonts.css";
+import Navbar from "./App/sections/Navbar";
+import Hero from "./App/sections/Hero";
+import AboutMe from "./App/sections/AboutMe";
+import Services from "./App/sections/Services";
+import Portfolio from "./App/sections/Porfolio";
+import Contact from "./App/sections/Contact";
+import Footer from "./App/sections/Footer";
 
-
-function App() {
-
+export default function App() {
   return (
-    <div className="App">
-      <ToastContainer />
-      <Header />
-      <Title>is title tag</Title>
-      
-      <Button>enter</Button>
-
-     
-
-      {/* ? router */}
-      <Routes>
-        {/* Odatda asosiy sahifa uchun path='/' bo'ladi */}
-        <Route path='/' element={<Home />} />
-        <Route path='home' element={<Home />} />
-      </Routes>
+    <div style={{ fontFamily: "'Poppins', sans-serif", background: "#fff", color: "#1a1a2e", overflowX: "hidden" }}>
+      <Navbar />
+      <Hero />
+      <AboutMe />
+      <Services />
+      <Portfolio />
+      <Contact />
+      <Footer />
     </div>
   );
 }
-
-export default App;
