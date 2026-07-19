@@ -213,7 +213,7 @@ export default function Portfolio() {
                     }}
                   >
                     <a
-                      href="#"
+                      href="https://github.com/rr11oo28"
                       style={{
                         background: "#fff",
                         color: "#4f46e5",
@@ -228,7 +228,7 @@ export default function Portfolio() {
                     </a>
 
                     <a
-                      href="#"
+                      href="https://github.com/rr11oo28"
                       style={{
                         background:
                           "rgba(255,255,255,0.2)",
