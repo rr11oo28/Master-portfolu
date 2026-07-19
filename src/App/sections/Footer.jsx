@@ -96,7 +96,7 @@ export default function Footer() {
                 (Icon, i) => (
                   <a
                     key={i}
-                    href="#"
+                    href="#footer"
                     style={{
                       width: "38px",
                       height: "38px",

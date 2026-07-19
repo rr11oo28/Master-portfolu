@@ -1,5 +1,5 @@
 import heroImg from "../../img/man.png";
-import { FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
+import { FiGithub, FiInstagram } from "react-icons/fi";
 import { FaTelegramPlane } from "react-icons/fa";
 export default function Hero() {
     return (
@@ -103,7 +103,7 @@ export default function Hero() {
                         }}
                     >
                         <a
-                            href="#"
+                            href="#home"
                             style={{
                                 background:
                                     "linear-gradient(135deg,#4f46e5,#7c3aed)",

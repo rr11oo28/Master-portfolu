@@ -217,7 +217,7 @@ export default function AboutMe() {
           </div>
 
           <a
-            href="#"
+            href="/CV.pdf"
             style={{
               display: "inline-block",
               marginTop: "25px",
