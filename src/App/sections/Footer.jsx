@@ -4,15 +4,17 @@ import {
   FiTwitter,
   FiInstagram,
   FiHeart,
+  FiArrowUpRight,
 } from "react-icons/fi";
 
 export default function Footer() {
   return (
     <footer
       style={{
-        background: "#1a1a2e",
-        color: "#fff",
-        padding: "48px 0 24px",
+        background: "#090d16",
+        color: "#ffffff",
+        padding: "64px 0 28px",
+        borderTop: "1px solid #1f2937",
       }}
     >
       <div
@@ -22,21 +24,23 @@ export default function Footer() {
           padding: "0 24px",
         }}
       >
+        {/* Top Section */}
         <div
+          className="footer-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "2fr 1fr 1fr",
             gap: "48px",
-            marginBottom: "40px",
+            marginBottom: "52px",
           }}
         >
-          {/* Brand */}
+          {/* Brand & Info */}
           <div>
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "8px",
+                gap: "10px",
                 marginBottom: "16px",
               }}
             >
@@ -44,9 +48,8 @@ export default function Footer() {
                 style={{
                   width: "36px",
                   height: "36px",
-                  borderRadius: "50%",
-                  background:
-                    "linear-gradient(135deg, #4f46e5, #7c3aed)",
+                  borderRadius: "10px",
+                  background: "#ffffff",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -54,9 +57,9 @@ export default function Footer() {
               >
                 <span
                   style={{
-                    color: "#fff",
-                    fontWeight: "700",
-                    fontSize: "1rem",
+                    color: "#090d16",
+                    fontWeight: "800",
+                    fontSize: "1.1rem",
                   }}
                 >
                   O
@@ -66,7 +69,9 @@ export default function Footer() {
               <span
                 style={{
                   fontWeight: "700",
-                  fontSize: "1.2rem",
+                  fontSize: "1.25rem",
+                  letterSpacing: "-0.02em",
+                  color: "#ffffff",
                 }}
               >
                 Odiljon.dev
@@ -76,90 +81,69 @@ export default function Footer() {
             <p
               style={{
                 color: "#9ca3af",
-                fontSize: "0.875rem",
-                lineHeight: "1.8",
-                maxWidth: "300px",
+                fontSize: "0.9rem",
+                lineHeight: "1.7",
+                maxWidth: "320px",
+                marginBottom: "24px",
               }}
             >
-              Full Stack Developer. Kodni san'at kabi yozaman va har bir
-              loyihaga butun yuragim bilan kirishaman.
+              Full Stack Developer. Yuqori sifatli, tezkor va zamonaviy raqamli
+              yechimlarni ishlab chiqaman.
             </p>
 
+            {/* Social Icons */}
             <div
+              className="social-links"
               style={{
                 display: "flex",
-                gap: "12px",
-                marginTop: "20px",
+                gap: "10px",
               }}
             >
-              {[FiGithub, FiLinkedin, FiTwitter, FiInstagram].map(
-                (Icon, i) => (
-                  <a
-                    key={i}
-                    href="#footer"
-                    style={{
-                      width: "38px",
-                      height: "38px",
-                      borderRadius: "10px",
-                      background: "rgba(255,255,255,0.06)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#9ca3af",
-                      textDecoration: "none",
-                      transition: "0.3s",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "#4f46e5";
-                      e.currentTarget.style.color = "#fff";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background =
-                        "rgba(255,255,255,0.06)";
-                      e.currentTarget.style.color = "#9ca3af";
-                    }}
-                  >
-                    <Icon size={16} />
-                  </a>
-                )
-              )}
+              {[
+                { Icon: FiGithub, link: "https://github.com" },
+                { Icon: FiLinkedin, link: "https://linkedin.com" },
+                { Icon: FiTwitter, link: "https://twitter.com" },
+                { Icon: FiInstagram, link: "https://instagram.com" },
+              ].map(({ Icon, link }, i) => (
+                <a
+                  key={i}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-btn"
+                >
+                  <Icon size={16} />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Links */}
+          {/* Nav Links */}
           <div>
             <h4
               style={{
                 fontWeight: "700",
                 marginBottom: "20px",
-                fontSize: "1rem",
+                fontSize: "0.95rem",
+                color: "#ffffff",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
               }}
             >
-              Havolalar
+              Navigatsiya
             </h4>
 
-            {["Home", "About", "Portfolio", "Contact"].map((l) => (
-              <a
-                key={l}
-                href={`#${l.toLowerCase()}`}
-                style={{
-                  display: "block",
-                  color: "#9ca3af",
-                  textDecoration: "none",
-                  fontSize: "0.875rem",
-                  marginBottom: "10px",
-                  transition: "0.3s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#a5b4fc";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#9ca3af";
-                }}
-              >
-                {l}
-              </a>
-            ))}
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {["Home", "About", "Portfolio", "Contact"].map((l) => (
+                <a
+                  key={l}
+                  href={`#${l.toLowerCase()}`}
+                  className="footer-link"
+                >
+                  {l}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Services */}
@@ -168,109 +152,144 @@ export default function Footer() {
               style={{
                 fontWeight: "700",
                 marginBottom: "20px",
-                fontSize: "1rem",
+                fontSize: "0.95rem",
+                color: "#ffffff",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
               }}
             >
               Xizmatlar
             </h4>
 
-            {[
-              "Frontend Dev",
-              "Backend Dev",
-              "Full Stack App",
-              "Cloud & DevOps",
-            ].map((s) => (
-              <a
-                key={s}
-                href="#services"
-                style={{
-                  display: "block",
-                  color: "#9ca3af",
-                  textDecoration: "none",
-                  fontSize: "0.875rem",
-                  marginBottom: "10px",
-                  transition: "0.3s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#a5b4fc";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#9ca3af";
-                }}
-              >
-                {s}
-              </a>
-            ))}
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {[
+                "Frontend Dev",
+                "Backend Dev",
+                "Full Stack App",
+                "Cloud & DevOps",
+              ].map((s) => (
+                <a
+                  key={s}
+                  href="#contact"
+                  className="footer-link"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
+                >
+                  {s} <FiArrowUpRight size={13} style={{ opacity: 0.6 }} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
+        {/* Bottom Bar */}
         <div
+          className="footer-bottom"
           style={{
-            borderTop: "1px solid rgba(255,255,255,0.08)",
-            paddingTop: "24px",
+            borderTop: "1px solid #1f2937",
+            paddingTop: "28px",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             flexWrap: "wrap",
-            gap: "12px",
+            gap: "16px",
           }}
         >
           <p
             style={{
               color: "#6b7280",
-              fontSize: "0.8rem",
+              fontSize: "0.85rem",
+              margin: 0,
             }}
           >
-            © 2026 Odiljon burhanovv. Barcha huquqlar himoyalangan.
+            © 2026 Odiljon Burhanov. Barcha huquqlar himoyalangan.
           </p>
 
           <p
             style={{
-              color: "#6b7280",
-              fontSize: "0.8rem",
+              color: "#9ca3af",
+              fontSize: "0.85rem",
               display: "flex",
               alignItems: "center",
-              gap: "4px",
+              gap: "6px",
+              margin: 0,
             }}
           >
-            Made with <FiHeart size={12} color="#ef4444" /> in Samarqand
+            Made with <FiHeart size={14} color="#ef4444" fill="#ef4444" /> in Samarqand
           </p>
         </div>
       </div>
 
+      {/* STYLES & ANIMATIONS */}
       <style>{`
-  @media (max-width: 768px) {
-    footer > div > div {
-      grid-template-columns: 1fr !important;
-      gap: 30px !important;
-      text-align: center;
-    }
+        .social-btn {
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
+          background: #111827;
+          border: 1px solid #1f2937;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #9ca3af;
+          text-decoration: none;
+          transition: all 0.25s ease;
+        }
 
-    footer a {
-      text-align: center;
-    }
+        .social-btn:hover {
+          background: #ffffff;
+          color: #090d16;
+          border-color: #ffffff;
+          transform: translateY(-2px);
+        }
 
-    footer > div > div:last-child {
-      flex-direction: column !important;
-      justify-content: center !important;
-      text-align: center;
-    }
-  }
+        .footer-link {
+          color: #9ca3af;
+          text-decoration: none;
+          font-size: 0.9rem;
+          transition: all 0.2s ease;
+          width: fit-content;
+        }
 
-  @media (max-width: 480px) {
-    footer {
-      padding: 40px 0 20px !important;
-    }
+        .footer-link:hover {
+          color: #ffffff;
+          transform: translateX(3px);
+        }
 
-    footer p {
-      font-size: 0.75rem !important;
-    }
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 36px !important;
+          }
 
-    footer h4 {
-      font-size: 0.95rem !important;
-    }
-  }
-`}</style>
+          .footer-grid > div {
+            display: flex;
+            flexDirection: column;
+            align-items: center;
+            text-align: center;
+          }
+
+          .footer-grid p {
+            max-width: 100% !important;
+          }
+
+          .footer-link:hover {
+            transform: translateY(-2px);
+          }
+
+          .footer-bottom {
+            flex-direction: column !important;
+            justify-content: center !important;
+            text-align: center;
+          }
+        }
+
+        @media (max-width: 480px) {
+          footer {
+            padding: 48px 0 24px !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 }

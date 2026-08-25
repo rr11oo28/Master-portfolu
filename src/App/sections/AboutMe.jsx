@@ -1,9 +1,24 @@
-// import { FiGithub, FiLinkedin, FiTwitter, FiInstagram } from "react-icons/fi";
+import { 
+  FiDownload, 
+  FiCode, 
+  FiServer, 
+  FiCpu, 
+  FiGithub, 
+  FiLinkedin 
+} from "react-icons/fi";
+import { FaTelegram } from "react-icons/fa";
 import myPhoto from "../../img/photo_2026-06-23_16-49-19.jpg";
+
 const skills = [
-  { label: "React / Next.js", pct: 92, color: "#4f46e5" },
-  { label: "Node.js / Express", pct: 85, color: "#7c3aed" },
-  { label: "TypeScript", pct: 88, color: "#f59e0b" },
+  { label: "React / Next.js", pct: 92, icon: <FiCode /> },
+  { label: "Node.js / Express", pct: 85, icon: <FiServer /> },
+  { label: "TypeScript", pct: 88, icon: <FiCpu /> },
+];
+
+const socials = [
+  { icon: <FiGithub />, href: "https://github.com" },
+  { icon: <FiLinkedin />, href: "https://linkedin.com" },
+  { icon: <FaTelegram />, href: "https://t.me" },
 ];
 
 export default function AboutMe() {
@@ -12,57 +27,49 @@ export default function AboutMe() {
       id="about"
       style={{
         minHeight: "100vh",
-        background: "#fff",
+        background: "#ffffff",
+        color: "#111827",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "40px 20px",
+        padding: "80px 24px",
       }}
     >
       <div
+        className="about-container"
         style={{
-          maxWidth: "1100px",
+          maxWidth: "1000px",
           width: "100%",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "320px 1fr",
           gap: "60px",
           alignItems: "center",
         }}
       >
-        {/* LEFT */}
+        {/* LEFT - PHOTO */}
         <div
           style={{
-            position: "relative",
             display: "flex",
-            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "20px",
           }}
         >
           <div
+            className="photo-card"
             style={{
-              width: "360px",
-              height: "440px",
-              borderRadius: "24px",
+              width: "100%",
+              height: "380px",
+              borderRadius: "16px",
               overflow: "hidden",
-              boxShadow: "0 20px 50px rgba(0,0,0,0.15)",
+              border: "1px solid #e5e7eb",
+              background: "#f9fafb",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
             }}
-
           >
-            <div
-              style={{
-                position: "absolute",
-                top: "20px",
-                right: "-15px",
-                background: "#fff",
-                padding: "10px 15px",
-                borderRadius: "999px",
-                boxShadow: "0 10px 25px rgba(40, 30, 192, 0.938)",
-                fontWeight: "600",
-              }}
-            >
-              Available for Work 100%
-            </div>
             <img
-              src={myPhoto} alt="About"
+              src={myPhoto}
+              alt="Odiljon Burhanov"
               style={{
                 width: "100%",
                 height: "100%",
@@ -71,59 +78,42 @@ export default function AboutMe() {
             />
           </div>
 
+          {/* SOCIAL ICONS */}
           <div
             style={{
-              position: "absolute",
-              bottom: "-14px",
-              left: "-14px",
-              width: "360px",
-              height: "440px",
-              borderRadius: "24px",
-              border: "3px solid #4f46e5",
-              opacity: 0.25,
-              zIndex: -1,
-            }}
-          />
-
-          <div
-            style={{
-              position: "absolute",
-              right: "-30px",
-              top: "70%",
-              transform: "translateY(-50%)",
               display: "flex",
-              flexDirection: "column",
               gap: "12px",
             }}
           >
-            {[
-
-            ].map((s, i) => (
+            {socials.map((s, i) => (
               <a
                 key={i}
                 href={s.href}
+                target="_blank"
+                rel="noreferrer"
                 style={{
-                  width: "42px",
-                  height: "42px",
+                  width: "40px",
+                  height: "40px",
                   borderRadius: "10px",
-                  background: "#fff",
-                  boxShadow: "0 5px 15px rgba(0,0,0,0.12)",
+                  background: "#f3f4f6",
+                  border: "1px solid #e5e7eb",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#4f46e5",
-                  transition: "0.25s",
-                  cursor: "pointer",
+                  color: "#4b5563",
+                  fontSize: "1.1rem",
+                  transition: "all 0.2s ease",
+                  textDecoration: "none",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#4f46e5";
-                  e.currentTarget.style.color = "#fff";
-                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.background = "#111827";
+                  e.currentTarget.style.color = "#ffffff";
+                  e.currentTarget.style.borderColor = "#111827";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#fff";
-                  e.currentTarget.style.color = "#4f46e5";
-                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.background = "#f3f4f6";
+                  e.currentTarget.style.color = "#4b5563";
+                  e.currentTarget.style.borderColor = "#e5e7eb";
                 }}
               >
                 {s.icon}
@@ -132,32 +122,35 @@ export default function AboutMe() {
           </div>
         </div>
 
-        {/* RIGHT */}
+        {/* RIGHT - INFO */}
         <div
+          className="about-info"
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
+            alignItems: "flex-start",
           }}
         >
-          <p
+          <span
             style={{
-              fontSize: "40px",
-              fontWeight: "700",
-              color: "#4f46e5",
-              marginBottom: "0px",
+              fontSize: "0.85rem",
+              fontWeight: "600",
+              color: "#6b7280",
+              letterSpacing: "0.05em",
+              textTransform: "uppercase",
+              marginBottom: "8px",
             }}
           >
-            About Me
-          </p>
+            Men haqimda
+          </span>
 
           <h2
             style={{
-              fontSize: "2.3rem",
-              fontWeight: "800",
-              color: "#111",
+              fontSize: "2.4rem",
+              fontWeight: "700",
+              color: "#111827",
+              margin: "0 0 16px 0",
+              lineHeight: 1.2,
             }}
           >
             Full Stack Developer
@@ -165,50 +158,56 @@ export default function AboutMe() {
 
           <p
             style={{
-              color: "#666",
-              marginTop: "0px",
+              color: "#4b5563",
+              fontSize: "1rem",
+              margin: "0 0 32px 0",
               lineHeight: "1.7",
-              maxWidth: "500px",
             }}
           >
-            Men Odiljon Burhanov — Full Stack dasturchiman. React, Node.js va
-            TypeScript bilan ishlayman.
+            Men <strong style={{ color: "#111827" }}>Odiljon Burhanov</strong> — Full Stack dasturchiman. 
+            React, Node.js va TypeScript texnologiyalari yordamida zamonaviy, tezkor va xavfsiz web loyihalar barpo etaman.
           </p>
 
           {/* SKILLS */}
           <div
             style={{
-              marginTop: "0px",
               width: "100%",
-              maxWidth: "500px",
-              textAlign: "left",
+              marginBottom: "36px",
             }}
           >
             {skills.map((sk) => (
-              <div key={sk.label} style={{ marginBottom: "14px" }}>
+              <div key={sk.label} style={{ marginBottom: "16px" }}>
                 <div
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
+                    alignItems: "center",
+                    fontSize: "0.9rem",
+                    color: "#111827",
+                    marginBottom: "6px",
                   }}
                 >
-                  <span>{sk.label}</span>
-                  <span style={{ color: sk.color }}>{sk.pct}%</span>
+                  <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <span style={{ color: "#4b5563", fontSize: "1rem" }}>{sk.icon}</span>
+                    {sk.label}
+                  </span>
+                  <span style={{ color: "#6b7280" }}>{sk.pct}%</span>
                 </div>
 
                 <div
                   style={{
                     height: "6px",
-                    background: "#eee",
-                    borderRadius: "20px",
+                    background: "#f3f4f6",
+                    borderRadius: "99px",
+                    overflow: "hidden",
                   }}
                 >
                   <div
                     style={{
                       width: `${sk.pct}%`,
                       height: "100%",
-                      background: sk.color,
-                      borderRadius: "20px",
+                      background: "#111827",
+                      borderRadius: "99px",
                     }}
                   />
                 </div>
@@ -216,66 +215,54 @@ export default function AboutMe() {
             ))}
           </div>
 
+          {/* BUTTON */}
           <a
             href="/CV.pdf"
+            download
             style={{
-              display: "inline-block",
-              marginTop: "25px",
-              background: "#4f46e5",
-              color: "#fff",
-              padding: "12px 25px",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              background: "#111827",
+              color: "#ffffff",
+              padding: "12px 24px",
               borderRadius: "8px",
               textDecoration: "none",
-              fontWeight: "600",
+              fontWeight: "500",
+              fontSize: "0.9rem",
+              transition: "all 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#374151";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "#111827";
             }}
           >
-            ⬇ CV Yuklab olish
+            <span>CV Yuklab olish</span>
+            <FiDownload style={{ fontSize: "1rem" }} />
           </a>
         </div>
       </div>
 
       <style>{`
-  @media (max-width: 768px) {
-    #about > div {
-      grid-template-columns: 1fr !important;
-      gap: 30px !important;
-    }
+        @media (max-width: 768px) {
+          .about-container {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
 
-    #about {
-      padding: 60px 15px !important;
-    }
+          .about-info {
+            align-items: center !important;
+            text-align: center !important;
+          }
 
-    /* LEFT side fix */
-    #about > div > div:first-child {
-      display: flex !important;
-      justify-content: center !important;
-    }
-
-    /* IMAGE SIZE MOBILE */
-    #about img {
-      width: 280px !important;
-      height: 360px !important;
-      object-fit: cover;
-    }
-
-    /* RIGHT side center */
-    #about > div > div:last-child {
-      align-items: center !important;
-      text-align: center !important;
-    }
-
-    #about p {
-      max-width: 100% !important;
-    }
-  }
-
-  @media (max-width: 480px) {
-    #about img {
-      width: 240px !important;
-      height: 320px !important;
-    }
-  }
-`}</style>
+          .photo-card {
+            max-width: 280px !important;
+            height: 340px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
